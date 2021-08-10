@@ -29,7 +29,7 @@ $(document).ready(function () {
     });
 
     async function updateCart(action, title, imageUrl, price) {
-        let url = `/api/updateCartItems?action=${action}&title=${title}&imageUrl=${imageUrl}&price=${price}`;
+        let url = `/api/updateCartItems?action=${action}&imageUrl=${imageUrl}&price=${price}&title=${title}`;
         alert(imageUrl)
         await fetch(url);
     }
