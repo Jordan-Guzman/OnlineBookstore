@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <main>
+        <h1 id="books">Books</h1>
+        <form action="/search" autocomplete="off">
+            <input class="input-box" type="text" placeholder="Type book title" name="title"/>
+            <br><br>
+            <button class="search-book">Search</button>
+            <br><br><a class="link" href="/shoppingCart"> Shopping Cart </a>
+        </form>
+        <hr>
+        <div id="resultsContainer">
+            <% for(let i = 0; i < bookTitle.length; i++) { %>
+                <div class="results">
+                    <h2 class="book-title"><%= bookTitle[i] %></h2>
+                    <img class="results-book-cover" src='<%= bookCover[i] %>'>
+                    <div class="description"><%= bookDescription[i] %></div>
+                    <h3 class="price"><%= bookPrice[i] %></h3>
+                    <div id="button-box">
+                        <button class="to-cart">Add To Cart</button>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </main>
+    <br><hr>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

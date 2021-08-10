@@ -1,0 +1,103 @@
+#linkPasswordReset, #linkSignUp {
+    color: #2F4F4F !important;
+}
+
+#button-container {
+    margin-bottom: 2.5em;
+}
+
+button:disabled {
+    background: #ccc;
+    color: black;
+}
+
+.login, #login-header {
+    color: #2F4F4F !important;
+    font-weight: bold;
+}
+
+#signIn {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#buttonSignIn {
+    background-color: #FAEBD7;
+}
+
+#search-books-header, #books, .book-title, 
+.price, #shopping-cart, #shopping-cart-header, 
+#books-header, .books {
+    color: goldenrod;
+}
+
+#search-books-header, #books-header, #shopping-cart-header, #books {
+    font-family: 'Copperplate Gothic Light';
+}
+
+ .link, a:visited {
+    margin: 0em 1em 0em 1em;
+    font-size: 1.5em;
+    font-family: Rockwell, Rockwell;
+    text-decoration: none;
+    color: goldenrod;
+}
+
+.search-book {
+    font-weight: bold;
+}
+
+.search-book, .to-cart, #checkout {
+    background-color: goldenrod;
+}
+
+.input-box {
+    background-color: rgb(184, 180, 174);
+}
+
+#resultsContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+#button-box {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.results-book-cover {
+    height: 12em;
+}
+
+.description {
+    display: none;
+    color: aliceblue;
+}
+
+.price {
+    padding-bottom: 1em;
+}
+
+.results {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+#shipping-address, #shipping-address-header {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#shipping-address {
+    text-align: left;
+}
+
+footer {
+    color: #228B22;
+}

@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <main>
+        <h1 id="shopping-cart-header">Shopping Cart</h1>
+        <a class="link" href="/home"> Back to Search </a>
+        <hr>
+        <div id="cart">
+            <h1 id="books-header">BOOKS</h1>
+            <% for(let i = 0; i < rows.length; i++) { %>
+                <div>
+                    <h3 class="books"><%= rows[i].title %></h3>
+                    <img class="cart-book-cover" src='<%= rows[i].imageUrl %>'>
+                    <button>Placeholder</button>
+                </div>
+                <% } %>
+            </div>
+            <br><br>
+        <button id="checkout">Checkout</button>
+    </main>
+    <br><hr>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

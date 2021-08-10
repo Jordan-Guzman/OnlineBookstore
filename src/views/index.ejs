@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+<body>
+    <h1 id="login-header" class="col text-center"> Book Store Log In </h1>
+
+    <form id= "signIn" class = "st" method="POST">
+        <br>
+        <label class="login">Username: <input type = "text" name="username"></label>
+        <br><br>
+        <label class="login">Password: <input type = "password" name="password"></label>
+        <br><br>
+        <button id="buttonSignIn" > Login! </button>
+        <% if (typeof loginError != "undefined" && loginError) { %>
+            <h3 class = "error"> Wrong credentials! </h3>
+        <% }%>
+    </form>
+
+    <br><br>
+    <a  id="linkSignUp" class="link" href="/signUpPage">Sign up</a>
+    &nbsp;&nbsp;
+    <a id="linkPasswordReset" class="link" href="/passwordResetPage">Password Reset</a>
+    <br><br>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

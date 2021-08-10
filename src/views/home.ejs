@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <main>
+        <h1 id="search-books-header">Search Books</h1>
+        <form action="/search" autocomplete="off">
+            <input class="input-box" type="text" placeholder="Type book title" name="title"/>
+            <br><br>
+            <button class="search-book">Search</button><br><br>
+            <a class="link" href="/shoppingCart"> Shopping Cart </a>
+        </form>
+    </main>
+    <br><hr>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
