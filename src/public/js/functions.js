@@ -7,18 +7,17 @@ $(document).ready(function () {
 
         if(title != "") {
             // update shopping cart/add to DB
-            updateCart("add", title, imageUrl, price);
+            addToCart(title, imageUrl, price);
             $(this).html("Added To Cart!");
             $(this).prop("disabled", "true");
         }
     });
 
     //delete books from cart/the DB
-    $().on("click", function() {
-        // if() {
-            // update shopping cart/delete from DB
-            // updateCart("delete", title);       
-        // }
+    $(".remove-from-cart").on("click", function() {
+        let title = $(this).siblings(".cart-book-title").html();
+        removeFromCart(title);
+        $(this).parent().remove();
     });
 
     $(".results-book-cover").on("mouseover", async function() {
@@ -28,9 +27,14 @@ $(document).ready(function () {
         });
     });
 
-    async function updateCart(action, title, imageUrl, price) {
-        let url = `/api/updateCartItems?action=${action}&imageUrl=${imageUrl}&price=${price}&title=${title}`;
-        alert(imageUrl)
+    async function addToCart(title, imageUrl, price) {
+        let url = `/api/addToCart?imageUrl=${imageUrl}&price=${price}&title=${title}`;
+        await fetch(url);
+    }
+
+    //successfully removes from the DB
+    async function removeFromCart(title) {
+        let url = `/api/removeFromCart?title=${title}`;
         await fetch(url);
     }
 });//ready

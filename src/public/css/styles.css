@@ -26,7 +26,7 @@ button:disabled {
     background-color: #FAEBD7;
 }
 
-#search-books-header, #books, .book-title, 
+#search-books-header, #books, .book-title, .cart-book-title, 
 .price, #shopping-cart, #shopping-cart-header, 
 #books-header, .books {
     color: goldenrod;

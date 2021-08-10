@@ -57,24 +57,18 @@ app.get('/search', async (req, res) => {
     res.render('results', {"imageUrl": imageUrl, "bookTitle": bookTitle, "bookCover": bookCover, "bookDescription": bookDescription, "bookPrice": bookPrice});
 });
 
-app.get('/api/updateCartItems', async (req, res) => {
-    let sql;
-    let sqlParams;
+app.get('/api/addToCart', async (req, res) => {
+    let sql = "INSERT INTO `book data` (title, imageUrl, price) VALUES (?, ?, ?)";
+    let cover = req.query.imageUrl + "&printsec=" + req.query.printsec + "&img=" + req.query.img + 
+        "&zoom=" + req.query.zoom + "&edge=" + req.query.edge + "&source=" + req.query.source;
+    let sqlParams = [req.query.title, cover, req.query.price];
+    let rows = await executeSQL(sql, sqlParams);
+    res.send(rows.affectedRows.toString());
+});
 
-    switch(req.query.action) {
-        case "add":
-            sql = "INSERT INTO `online bookstore` (imageUrl, price) VALUES (?, ?)";
-            let cover = req.query.imageUrl + "&printsec=" + req.query.printsec + "&img=" + req.query.img + 
-                "&zoom=" + req.query.zoom + "&edge=" + req.query.edge + "&source=" + req.query.source;
-                console.log(req.query.imageUrl);
-                console.log(cover);
-            sqlParams = [cover, req.query.price];
-            break;
-        case "delete":
-            sql = "DELETE FROM `online bookstore` WHERE title = ?";
-            sqlParams = [req.query.title];
-            break;
-    }
+app.get('/api/removeFromCart', async (req, res) => {
+    let sql = "DELETE FROM `book data` WHERE title = ?";
+    let sqlParams = [req.query.title];
     let rows = await executeSQL(sql, sqlParams);
     res.send(rows.affectedRows.toString());
 });
@@ -82,7 +76,7 @@ app.get('/api/updateCartItems', async (req, res) => {
 app.get('/shoppingCart', async (req, res) => {
     let imageUrl = "https://images.unsplash.com/photo-1419640303358-44f0d27f48e7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNDY5Njd8MHwxfGFsbHx8fHx8fHx8fDE2MjczMTkwMDY&ixlib=rb-1.2.1&q=85";
 
-    let sql = "SELECT title, imageUrl FROM `online bookstore` ORDER BY title";
+    let sql = "SELECT title, imageUrl FROM `book data` ORDER BY title";
     let rows = await executeSQL(sql);
     res.render('cart', {"imageUrl": imageUrl, "rows": rows});
 });
